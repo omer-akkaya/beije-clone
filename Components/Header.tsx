@@ -26,7 +26,10 @@ const Icon = ({ IconName, Class }: IconProps) => {
 //Component for navigation items between logo and right top icons
 const NavigationItem = ({ title }: { title: String }) => {
   return (
-    <span className='cursor-pointer border-b-[1px] border-primary-color hover:border-slate-700 transition-all'>
+    <span
+      style={{ fontFamily: "Roboto" }}
+      className='cursor-pointer border-b-[1px] border-primary-color hover:border-slate-700 transition-all'
+    >
       {title}
     </span>
   );
@@ -35,7 +38,7 @@ const NavigationItem = ({ title }: { title: String }) => {
 //Main header component
 const Header = () => {
   return (
-    <header className='flex justify-between px-10 py-4 items-center max-w-7xl mx-auto'>
+    <header className='flex justify-between px-7 py-4 items-center max-w-7xl mx-auto'>
       <div className='cursor-pointer'>
         <Image alt='logo' width={60} height={30} src='logo.svg'></Image>
       </div>
