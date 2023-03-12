@@ -3,20 +3,16 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
-export default function ThreeTab() {
-  const [value, setValue] = useState(0);
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+type ThreeTabProps = {
+  value: number;
+  handleTabChange: any;
+};
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
-
+export default function ThreeTab({ value, handleTabChange }: ThreeTabProps) {
   return (
     <Box sx={{ marginBottom: "50px" }}>
       <Tabs
-        onChange={handleChange}
+        onChange={handleTabChange}
         value={value}
         aria-label='Tabs where selection follows focus'
         selectionFollowsFocus

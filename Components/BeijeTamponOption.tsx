@@ -1,8 +1,8 @@
 import React from "react";
 import DiscreteSliderMarks from "./Slider";
 
-const GunlukPed = {
-  title: "Günlük Ped",
+const MiniTampon = {
+  title: "Mini Tampon",
   marks: [
     {
       value: 0,
@@ -32,8 +32,8 @@ const GunlukPed = {
   max: 60,
 };
 
-const SuperGunlukPed = {
-  title: "Süper Günlük Ped",
+const StandardTampon = {
+  title: "Standart Tampon",
   marks: [
     {
       value: 0,
@@ -63,13 +63,13 @@ const SuperGunlukPed = {
   max: 60,
 };
 
-const BeijeGunlukPedOption = () => {
+const BeijeTamponOption = () => {
   return (
     <>
-      <DiscreteSliderMarks product={GunlukPed}></DiscreteSliderMarks>
-      <DiscreteSliderMarks product={SuperGunlukPed}></DiscreteSliderMarks>
+      <DiscreteSliderMarks product={MiniTampon}></DiscreteSliderMarks>
+      <DiscreteSliderMarks product={StandardTampon}></DiscreteSliderMarks>
     </>
   );
 };
 
-export default BeijeGunlukPedOption;
+export default BeijeTamponOption;
