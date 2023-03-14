@@ -1,5 +1,5 @@
 import React from "react";
-import DiscreteSliderMarks from "./Slider";
+import DiscreteSliderMarks from "./DiscreteSliderMarks";
 
 const StandardPed = {
   title: "Standard Ped",
