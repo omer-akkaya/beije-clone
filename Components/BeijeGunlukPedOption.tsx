@@ -1,5 +1,7 @@
 import React from "react";
 import DiscreteSliderMarks from "./DiscreteSliderMarks";
+import { useContext } from "react";
+import { CartContext } from "@/context/Cart";
 
 const GunlukPed = {
   title: "Günlük Ped",
@@ -64,10 +66,26 @@ const SuperGunlukPed = {
 };
 
 const BeijeGunlukPedOption = () => {
+  const cart = useContext(CartContext);
+
+  const dailyPed = cart.dailyPed;
+  const superDailyPed = cart.superDailyPed;
+
+  const setDailyPed = cart.setDailyPed;
+  const setSuperDailyPed = cart.setSuperDailyPed;
+
   return (
     <>
-      <DiscreteSliderMarks product={GunlukPed}></DiscreteSliderMarks>
-      <DiscreteSliderMarks product={SuperGunlukPed}></DiscreteSliderMarks>
+      <DiscreteSliderMarks
+        value={dailyPed}
+        onChange={setDailyPed}
+        product={GunlukPed}
+      ></DiscreteSliderMarks>
+      <DiscreteSliderMarks
+        value={superDailyPed}
+        onChange={setSuperDailyPed}
+        product={SuperGunlukPed}
+      ></DiscreteSliderMarks>
     </>
   );
 };

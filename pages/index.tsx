@@ -4,6 +4,7 @@ import Header from "@/Components/Header";
 import CreateYourOwnPackage from "@/Components/CreateYourOwnPackage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "@/Components/Footer";
+import Cart from "../context/Cart";
 
 const theme = createTheme({
   palette: {
@@ -26,11 +27,13 @@ const PageHead = () => {
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <PageHead />
-      <Header />
-      <CreateYourOwnPackage />
-      <Footer />
-    </ThemeProvider>
+    <Cart>
+      <ThemeProvider theme={theme}>
+        <PageHead />
+        <Header />
+        <CreateYourOwnPackage />
+        <Footer />
+      </ThemeProvider>
+    </Cart>
   );
 }
