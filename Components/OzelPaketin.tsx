@@ -2,6 +2,9 @@ import Image from "next/image";
 import { GrPowerCycle } from "react-icons/gr";
 import React, { useEffect, useContext, useState } from "react";
 import { CartContext } from "@/context/Cart";
+import PedPaketleri from "./PedPaketleri";
+import GunlukPedPaketleri from "./GunlukPedPaketleri";
+import TamponPaketleri from "./TamponPaketleri";
 
 const OzelPaketin = () => {
   const {
@@ -14,7 +17,9 @@ const OzelPaketin = () => {
     standartTampon,
     cart,
   } = useContext(CartContext);
-
+  const [sepeteEkleBgColor, setsepeteEkleBgColor] = useState(
+    "bg-gray-300 text-gray-500"
+  );
   const [pedPaketleriString, setPedPaketleriString] = useState("");
   const [gunlukPedPaketleriString, setGunlukPedPaketleriString] = useState("");
   const [tamponPaketleriString, setTamponPaketleriString] = useState("");
@@ -47,6 +52,20 @@ const OzelPaketin = () => {
     } else {
       setTamponPaketleriString("");
     }
+    if (
+      standartPed +
+        superPed +
+        superPlusPed +
+        dailyPed +
+        superDailyPed +
+        miniTampon +
+        standartTampon >
+      0
+    ) {
+      setsepeteEkleBgColor("bg-gray-800 text-white");
+    } else {
+      setsepeteEkleBgColor("bg-gray-300 text-gray-500");
+    }
   }, [
     standartPed,
     superPed,
@@ -58,7 +77,10 @@ const OzelPaketin = () => {
   ]);
 
   return (
-    <div className='hidden lg:flex h-min flex-col rounded-2xl mx-7 p-8 bg-white w-[450px] flex-shrink-0'>
+    <div
+      style={{ background: "rgba(255,255,255,10)" }}
+      className='mx-auto mt-20 md:mt-0 bg lg:flex h-min flex-col rounded-2xl md:mx-7 p-8 w-[450px] flex-shrink-0'
+    >
       <span className='text-3xl font-semibold'>Özel Paketin</span>
       <div
         className='shadow-md mt-6 rounded-lg py-3 px-3 flex items-center text-lg'
@@ -74,20 +96,30 @@ const OzelPaketin = () => {
         width={400}
         height={200}
       />
-      {/* */}
 
-      {pedPaketleriString.length > 0 ? (
-        <span>{pedPaketleriString}</span>
-      ) : (
-        <div className='hidden'>yok</div>
-      )}
-      {/* */}
-
+      <PedPaketleri pedPaketleriString={pedPaketleriString} />
+      <GunlukPedPaketleri gunlukPedPaketleriString={gunlukPedPaketleriString} />
+      <TamponPaketleri tamponPaketleriString={tamponPaketleriString} />
       <div
-        className='bg-gray-300 text-gray-500 text-lg mt-14 py-3 text-center rounded-full cursor-pointer'
+        className={
+          sepeteEkleBgColor +
+          " text-lg mt-14 py-3 text-center rounded-full cursor-pointer"
+        }
         style={{ fontWeight: 500 }}
       >
-        Sepete Ekle (₺0,00)
+        Sepete Ekle (₺
+        {
+          +(
+            +standartPed +
+            +superPed +
+            +superPlusPed +
+            +dailyPed +
+            +superDailyPed +
+            +miniTampon +
+            +standartTampon
+          )
+        }
+        ,00 )
       </div>
     </div>
   );

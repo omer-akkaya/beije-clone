@@ -27,7 +27,7 @@ const CreateYourOwnPackage = () => {
 
   return (
     <div
-      className='flex mx-auto max-w-7xl mt-40 tracking-tight'
+      className='flex flex-col md:flex-row mx-auto max-w-7xl mt-40 tracking-tight'
       style={{ fontFamily: "Roboto" }}
     >
       <div className='px-7'>
