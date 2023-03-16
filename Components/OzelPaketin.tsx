@@ -80,6 +80,7 @@ const OzelPaketin = () => {
     <div
       style={{ background: "rgba(255,255,255,10)" }}
       className='mx-auto mt-20 md:mt-0 bg lg:flex h-min flex-col rounded-2xl md:mx-7 p-8 w-[450px] flex-shrink-0'
+      data-testid='ozel-paketin'
     >
       <span className='text-3xl font-semibold'>Özel Paketin</span>
       <div

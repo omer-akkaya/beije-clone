@@ -38,7 +38,10 @@ const NavigationItem = ({ title }: { title: String }) => {
 //Main header component
 const Header = () => {
   return (
-    <header className='flex justify-between px-7 py-4 items-center max-w-7xl mx-auto'>
+    <header
+      data-testid='title'
+      className='flex justify-between px-7 py-4 items-center max-w-7xl mx-auto'
+    >
       <div className='cursor-pointer'>
         <Image alt='logo' width={60} height={30} src='logo.svg'></Image>
       </div>
