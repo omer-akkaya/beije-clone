@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export const CartContext = React.createContext<any>({});
 
 export default function Cart({ children }: { children: React.ReactNode }) {
-  const [standartPed, setStandartPed] = useState(20);
+  const [standartPed, setStandartPed] = useState(0);
   const [superPed, setSuperPed] = useState(0);
   const [superPlusPed, setSuperPlusPed] = useState(0);
   const [dailyPed, setDailyPed] = useState(0);
@@ -13,16 +13,12 @@ export default function Cart({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState({});
 
   useEffect(() => {
-    const total =
-      standartPed +
-      superPed +
-      superPlusPed +
-      dailyPed +
-      superDailyPed +
-      miniTampon +
-      standartTampon;
-
-    setCart(total);
+    const cart = {
+      beijePed: [{ standartPed }, { superPed }, { superPlusPed }],
+      beijeGunlukPed: [{ dailyPed }, { superDailyPed }],
+      beijeTampon: [{ miniTampon }, { standartTampon }],
+    };
+    setCart(cart);
   }, [
     standartPed,
     superPed,
