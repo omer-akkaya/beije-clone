@@ -1,4 +1,4 @@
-## 🚨 beije-clone
+## beije-clone
 
 This repository is a fully responsive clone of [beije/custom-packet](https://beije.co/custom-packet) written with [TypeScript](https://www.typescriptlang.org/) & [Next.js](https://nextjs.org/).
 
